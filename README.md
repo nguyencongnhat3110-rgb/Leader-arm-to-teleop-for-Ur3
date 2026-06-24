@@ -1,6 +1,19 @@
 # Leader-arm-to-teleop-for-Ur3
 
+![ROS 2](https://img.shields.io/badge/ROS2-Humble%2B-blue)
+![MuJoCo](https://img.shields.io/badge/MuJoCo-3.x-orange)
+![Python](https://img.shields.io/badge/Python-3.8%2B-green)
+
 Teleoperation framework for **UR3 robot arm** using a **Feetech-based leader arm**, supporting both **real hardware control** and **MuJoCo simulation** for development and testing.
+
+## Real Hardware Setup
+
+<p align="center">
+  <img src="images/leader_arm.png" width="680"/>
+</p>
+<p align="center">
+  <em>Real-world teleoperation setup with custom leader arm and UR3 follower robot</em>
+</p>
 
 ---
 
@@ -25,7 +38,19 @@ System Goal:
 
 ---
 
-## Overview of Hardware
+## Quick Start
+
+```bash
+colcon build --symlink-install
+source install/setup.bash
+ros2 run my_ur_teleop mujoco_sim
+```
+
+For full teleoperation, launch the leader arm node and the UR3 follower node in separate terminals.
+
+---
+
+## Hardware Overview
 
 The teleoperation hardware includes a **custom leader arm** built for motion input and a **UR3 robot** as the follower.
 
