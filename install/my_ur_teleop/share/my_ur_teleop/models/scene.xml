@@ -1,0 +1,38 @@
+<mujoco model="ur3e_workspace">
+    <compiler angle="radian" autolimits="true"/>
+
+    <option integrator="implicitfast" timestep="0.002"/>
+
+    <visual>
+        <global offwidth="640" offheight="480"/> <quality shadowsize="2048"/>
+    </visual>
+
+    <include file="ur3e/ur3e.xml"/>
+
+    <worldbody>
+        <light name="top_light" pos="0 0 3" dir="0 0 -1" directional="true" castshadow="true"/>
+        <light name="table_light" pos="0.8 -0.8 2" dir="-0.4 0.4 -1" directional="false" diffuse="0.8 0.8 0.8"/>
+        <camera name="realsense_d435" pos="0.45 -0.6 0.1" mode="fixed" euler="1.5708 0 0" fovy="69"/>
+
+        <geom name="floor" type="plane" size="3 3 0.1" rgba="0.8 0.9 0.8 1" friction="1 0.005 0.0001"/>
+
+        <body name="work_table" pos="0.45 0 0">
+            <geom type="box" size="0.25 0.4 0.01" rgba="0.3 0.3 0.3 1"/>
+        </body>
+
+        <body name="target_object" pos="0.45 0 0.07">
+            <geom name="target_geom"
+                  type="box"
+                  size="0.06 0.06 0.06" 
+                  rgba="1 0 0 1"
+                  mass="0.5"
+                  condim="4"
+                  friction="0.8 0.005 0.0001"/>
+        </body>
+    </worldbody>
+
+    <sensor>
+        <force name="tcp_force" site="attachment_site"/>
+        <torque name="tcp_torque" site="attachment_site"/>
+    </sensor>
+</mujoco>

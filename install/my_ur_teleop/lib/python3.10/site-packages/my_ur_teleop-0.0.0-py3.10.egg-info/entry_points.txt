@@ -1,0 +1,10 @@
+[console_scripts]
+calib_matrix = my_ur_teleop.matrix_5x5_mujoco:main
+cv_detection_node = my_ur_teleop.cv_detection_node:main
+feetech_ctrl = my_ur_teleop.feetech_publisher:main
+feetech_mujoco = my_ur_teleop.feetech_publisher_sim:main
+mujoco_sim = my_ur_teleop.mujoco_sim_node:main
+ur3_teleop = my_ur_teleop.ur3_subscriber:main
+ur3_teleop_sim = my_ur_teleop.mujoco_subscriber_sim:main
+vision_motion_node = my_ur_teleop.vision_motion_node:main
+
