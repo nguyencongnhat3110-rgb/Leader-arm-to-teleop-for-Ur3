@@ -3,13 +3,17 @@
 ![ROS 2](https://img.shields.io/badge/ROS2-Humble%2B-blue)
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-3.x-orange)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-green)
+![UR3](https://img.shields.io/badge/Robot-UR3-lightgrey)
+![Feetech](https://img.shields.io/badge/Leader%20Arm-Feetech%20STS3215-red)
 
 Teleoperation framework for **UR3 robot arm** using a **Feetech-based leader arm**, supporting both **real hardware control** and **MuJoCo simulation** for development and testing.
+
+> **Highlight:** A compact **master-follower teleoperation system** for **UR3**, combining a **custom STS3215-based leader arm**, **simulation-first development**, and an extensible architecture for future **vision-based support**.
 
 ## Real Hardware Setup
 
 <p align="center">
-  <img src="images/leader_arm.png" width="680"/>
+  <img src="images/leader_arm.png" width="650"/>
 </p>
 <p align="center">
   <em>Real-world teleoperation setup with custom leader arm and UR3 follower robot</em>
@@ -21,12 +25,12 @@ Teleoperation framework for **UR3 robot arm** using a **Feetech-based leader arm
 
 This project is developed for **master-follower teleoperation** between a custom leader arm and a **Universal Robots UR3**.
 
-The system is designed to support:
+### ✨ Main goals
 
-- **real-time teleoperation of UR3**
-- **leader-follower joint mapping**
-- **simulation with MuJoCo**
-- **future extension with vision and perception modules**
+- **Real-time teleoperation of UR3**
+- **Leader-follower joint mapping**
+- **Simulation with MuJoCo**
+- **Future extension with vision and perception modules**
 
 ```text
 System Goal:
@@ -35,6 +39,8 @@ System Goal:
   + simulation and real hardware support
   + extensible teleoperation framework
 ```
+
+> **Why this project matters:** it provides a practical bridge between **custom low-cost teleoperation hardware** and a **real industrial collaborative robot**.
 
 ---
 
@@ -46,7 +52,7 @@ source install/setup.bash
 ros2 run my_ur_teleop mujoco_sim
 ```
 
-For full teleoperation, launch the leader arm node and the UR3 follower node in separate terminals.
+> **Quick note:** for full teleoperation, launch the **leader arm node** and the **UR3 follower node** in separate terminals.
 
 ---
 
@@ -54,7 +60,7 @@ For full teleoperation, launch the leader arm node and the UR3 follower node in 
 
 The teleoperation hardware includes a **custom leader arm** built for motion input and a **UR3 robot** as the follower.
 
-Main hardware components:
+### 🔧 Main hardware components
 
 - **UR3 collaborative robot arm**
 - **Feetech STS3215 servo motors** for the leader arm
@@ -71,6 +77,8 @@ Hardware:
   - STL design files in hardware/
 ```
 
+> **Hardware note:** the `hardware/` directory is not only for documentation support, but also for **mechanical reproduction and future iteration of the leader arm design**.
+
 ---
 
 ## Core Focus
@@ -81,7 +89,16 @@ The main focus of this project includes:
 - **Leader arm motion capture**
 - **Master-follower control**
 - **Real / simulation dual-mode workflow**
-- Future extension with **vision-based support**
+- **Vision-ready system expansion**
+
+### 🎯 Focus summary
+
+```text
+- Capture operator motion from the leader arm
+- Convert motion into follower commands
+- Execute teleoperation on UR3
+- Validate safely in MuJoCo before real deployment
+```
 
 ---
 
@@ -119,6 +136,8 @@ Main components:
 - Calibration utilities
 - Vision-related modules
 - Testing workflow for safe development before real deployment
+
+> **Design idea:** each module is kept relatively independent, making the framework easier to test, modify, and expand.
 
 ---
 
@@ -158,7 +177,7 @@ Operator Motion
  Real Robot or MuJoCo Simulation
 ```
 
-This modular design makes the system easier to test, modify, and extend.
+> **Pipeline highlight:** the same logic can be reused for both **simulation** and **real hardware**, which makes development safer and faster.
 
 ---
 
@@ -198,7 +217,7 @@ teleop-ur3/
 - Expandable architecture for vision and calibration modules
 ```
 
-Main strengths of this repository:
+### ✅ Strengths of this repository
 
 - Supports both real and simulated workflows
 - Provides a compact base for UR3 teleoperation research
@@ -231,6 +250,8 @@ Planned extensions may include:
 - ROS 2 workflow refinement
 - Extended hardware development for the leader arm
 ```
+
+> **Future direction:** this project can evolve from a basic teleoperation stack into a more complete **interactive manipulation platform** for UR robots.
 
 ---
 
